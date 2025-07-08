@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-frontend
+  template:
+    metadata:
+      labels:
+        app: sample-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: nginxdemos/hello
+          ports:
+            - containerPort: 80
